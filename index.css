@@ -1,0 +1,264 @@
+    /*Letras de colores Inacap*/
+    :root {
+      --inacap-red: #D81B26;
+      --inacap-black: #212529;
+      --inacap-gray: #495057;
+      --inacap-light-gray: #f8f9fa;
+      --inacap-white: #ffffff;
+      --carousel-height: 480px; /* Altura base del carrusel, ajústala */
+      --navbar-height: 25px; /* Nueva altura para la navbar */
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--inacap-black);
+      background-color: var(--inacap-white);
+      padding-top: var(--navbar-height); /* Para compensar la navbar fija si la usaras, o simplemente para espaciado si no es fija */
+    }
+
+    /* --- BARRA DE NAVEGACIÓN AJUSTADA --- */
+    .navbar-inacap-theme {
+      background-color: var(--inacap-white);
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      min-height: var(--navbar-height); /* Establecer la altura mínima */
+      /* Para hacerla fija arriba:
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1030;
+      */
+    }
+
+    .navbar-inacap-theme .navbar-brand {
+      height: var(--navbar-height); /* Hacer que el brand ocupe toda la altura */
+      display: flex; /* Para alinear verticalmente el logo y el texto */
+      align-items: center; /* Alineación vertical */
+      padding-top: 0; /* Quitar padding por defecto si usamos flex */
+      padding-bottom: 0;
+    }
+
+    .navbar-inacap-theme .navbar-brand img {
+      height: 40px; /* Ajusta la altura del logo según sea necesario, un poco más grande */
+      margin-right: 10px; /* Espacio entre logo y texto */
+    }
+
+    .navbar-inacap-theme .navbar-brand-text {
+      color: var(--inacap-black);
+      font-weight: bold;
+      font-size: 20px; /* Un poco más grande para "Club PIPA" */
+      line-height: normal; /* Asegurar que no interfiera con flex align-items */
+    }
+
+    .navbar-inacap-theme .navbar-brand:hover .navbar-brand-text,
+    .navbar-inacap-theme .navbar-brand:focus .navbar-brand-text {
+      color: var(--inacap-red);
+    }
+    .navbar-inacap-theme .navbar-brand:hover img,
+    .navbar-inacap-theme .navbar-brand:focus img {
+        /* Podrías añadir un efecto al logo en hover si quisieras */
+    }
+
+
+    .navbar-inacap-theme .navbar-nav > li > a {
+      color: var(--inacap-black);
+      font-weight: 600;
+      line-height: calc(var(--navbar-height) - 30px); /* Centrar texto en links (altura navbar - padding superior/inferior total de Bootstrap) */
+      padding-top: 15px; /* Mantener padding de Bootstrap o ajustar si es necesario */
+      padding-bottom: 15px;
+    }
+
+    .navbar-inacap-theme .navbar-nav > li > a:hover,
+    .navbar-inacap-theme .navbar-nav > li > a:focus {
+      color: var(--inacap-red);
+      background-color: transparent;
+    }
+
+    .navbar-inacap-theme .navbar-nav > .active > a,
+    .navbar-inacap-theme .navbar-nav > .active > a:hover,
+    .navbar-inacap-theme .navbar-nav > .active > a:focus {
+      color: var(--inacap-red);
+      background-color: transparent;
+      border-bottom: 3px solid var(--inacap-red);
+      /* Ajustar padding para que el borde no empuje el contenido si el line-height no es suficiente */
+       padding-bottom: calc(15px - 3px); /* (padding original - grosor del borde) */
+    }
+
+    .navbar-inacap-theme .navbar-toggle {
+      border-color: var(--inacap-gray);
+      margin-top: calc((var(--navbar-height) - 34px) / 2); /* Centrar botón toggle verticalmente (34px es altura default del toggle) */
+      margin-bottom: calc((var(--navbar-height) - 34px) / 2);
+    }
+
+    .navbar-inacap-theme .navbar-toggle .icon-bar {
+      background-color: var(--inacap-black);
+    }
+    
+    .navbar-inacap-theme .dropdown-menu {
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 0; /* Para que se alinee bien con la navbar más alta */
+    }
+
+    .navbar-inacap-theme .dropdown-menu > li > a {
+      color: var(--inacap-black);
+      font-weight: normal;
+      line-height: 1.42857143; /* Reset line-height para items de dropdown */
+      padding: 8px 20px; /* Ajustar padding si es necesario */
+    }
+
+    .navbar-inacap-theme .dropdown-menu > li > a:hover,
+    .navbar-inacap-theme .dropdown-menu > li > a:focus {
+      color: var(--inacap-red);
+      background-color: var(--inacap-light-gray);
+    }
+
+    /* Título Principal */
+    .page-title {
+      color: var(--inacap-red);
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-size: 2.5em;
+    }
+
+    /* === ESTILOS MEJORADOS PARA EL CARRUSEL (Integrados de la respuesta anterior) === */
+    #myCarousel {
+      border: none;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      background-color: var(--inacap-light-gray);
+      position: relative;
+    }
+
+    .carousel-inner {
+        border-radius: 8px;
+    }
+
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+      width: 100%;
+      height: var(--carousel-height);
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .carousel-control {
+      background-image: none !important;
+      background-color: rgba(0, 0, 0, 0.2);
+      width: 50px;
+      height: 50px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      opacity: 0.7;
+      transition: opacity 0.3s ease, background-color 0.3s ease;
+      text-shadow: none;
+    }
+
+    .carousel-control:hover,
+    .carousel-control:focus {
+      opacity: 1;
+      background-color: var(--inacap-red);
+      color: var(--inacap-white);
+    }
+
+    .carousel-control.left { left: 20px; }
+    .carousel-control.right { right: 20px; }
+
+    .carousel-control .glyphicon {
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--inacap-white);
+    }
+    
+    .carousel-indicators { bottom: 20px; }
+    .carousel-indicators li {
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+    .carousel-indicators .active {
+      background-color: var(--inacap-red);
+      border-color: var(--inacap-red);
+      width: 14px; height: 14px;
+    }
+
+    .carousel-caption {
+      right: 15%; left: 15%;
+      bottom: 30px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 6px;
+      text-shadow: none;
+    }
+    .carousel-caption h3 {
+      color: var(--inacap-white); font-weight: 700;
+      font-size: 24px; margin-bottom: 10px;
+    }
+    .carousel-caption p {
+      color: var(--inacap-light-gray); font-size: 16px; line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding-top: 0; /* Quitar padding si la navbar no es fija en móvil o se maneja diferente */
+      }
+      .navbar-inacap-theme .navbar-brand { padding-left: 15px; } /* Añadir padding si es necesario en móvil */
+      .navbar-inacap-theme .navbar-brand img { height: 30px; }
+      .navbar-inacap-theme .navbar-brand-text { font-size: 18px; }
+      .navbar-inacap-theme .navbar-nav > li > a {
+         line-height: 20px; /* Bootstrap default para colapsada */
+         padding-top: 10px;
+         padding-bottom: 10px;
+      }
+      .navbar-inacap-theme .navbar-nav > .active > a {
+        border-bottom: none; /* Quitar borde en menú colapsado o estilizar diferente */
+        padding-bottom: 10px;
+      }
+
+      :root { --carousel-height: 350px; }
+      .carousel-caption { bottom: 20px; padding: 15px; right: 5%; left: 5%; }
+      .carousel-caption h3 { font-size: 20px; }
+      .carousel-caption p { font-size: 14px; display: none; }
+    }
+    @media (max-width: 480px) {
+      :root { --carousel-height: 280px; }
+       .carousel-caption p { display: none; }
+    }
+
+    /* Botones */
+    .btn-inacap-red {
+      background-color: var(--inacap-red);
+      border-color: var(--inacap-red);
+      color: var(--inacap-white);
+      font-weight: bold;
+      padding: 10px 20px; /* Hacerlo un poco más grande */
+      font-size: 16px; /* Ajustar tamaño de fuente */
+    }
+    .btn-inacap-red:hover,
+    .btn-inacap-red:focus {
+      background-color: #b0121d;
+      border-color: #a0101a;
+      color: var(--inacap-white);
+    }
+
+    /* Footer */
+    .footer-inacap {
+      padding: 30px 0;
+      background-color: var(--inacap-black);
+      color: var(--inacap-light-gray);
+      text-align: center;
+      margin-top: 40px;
+    }
+    .footer-inacap p { margin-bottom: 5px; }
+    .footer-inacap a { color: var(--inacap-white); text-decoration: underline; }
+    .footer-inacap a:hover { color: var(--inacap-red); }
